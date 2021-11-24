@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en" >
+   <head>
+      <meta charset="UTF-8">
+      <title>Bursary Dashboard</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- CSRF Token -->
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+      <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
+      <!--font awesome-->
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="./style.css">
+   </head>
+   <body>
+      <!-- partial:index.partial.html -->
+      <div class="page-wrapper chiller-theme toggled">
+         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+         <i class="fas fa-bars"></i>
+         </a>
+         <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+               <div class="sidebar-brand">
+                  <a href="#">Bursary Dashboard</a>
+                  <div id="close-sidebar">
+                     <i class="fas fa-times"></i>
+                  </div>
+               </div>
+               <div class="sidebar-header">
+                  <div class="user-pic">
+                     <img class="img-responsive img-rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3RqRxVdTfjFkDjpNPjcFUhcJoY5ttjMJ1fA&usqp=CAU" alt="User picture">
+                  </div>
+                  <div class="user-info">
+                     <span class="user-name">Justus
+                     </span>
+                     <span class="user-status">
+                     <i class="fa fa-circle"></i>
+                     <span>Online</span>
+                     </span>
+                  </div>
+               </div>
+               <!-- sidebar-search  -->
+               <div class="sidebar-menu">
+                  <ul>
+                     <li class="header-menu">
+                        <span>General</span>
+                     </li>
+                     <li>
+                        <a href="#" onclick="studentsection()">
+                        <i class="far fa-user"></i>
+                        <span>Student</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" onclick="guardiansection()">
+                        <i class="far fa-user"></i>
+                        <span>Guardian</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+               <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+               <a href="#">
+               <i class="fa fa-bell"></i>
+               <span class="badge badge-pill badge-warning notification">3</span>
+               </a>
+               <a href="#">
+               <i class="fa fa-envelope"></i>
+               <span class="badge badge-pill badge-success notification">7</span>
+               </a>
+               <a href="" data-bs-toggle="tooltip" data-bs-placement="top" title="User Profile">
+               <i class="far fa-user"></i>
+               <span class="badge-sonar"></span>
+               </a>
+               <a href="index.html">
+               <i class="fa fa-power-off"></i>
+               </a>
+            </div>
+         </nav>
+         <!-- sidebar-wrapper  -->
+         <main class="page-content  bg-warning">
+            <section class="tyss bg-warning" id="student">
+               <div class="row">
+                  <div class="col-4">
+                     <p class=" float-start">ALL CORRESPONDENCE TO BE ADDRESSED: THE COUNTY SECRETARY <br>
+                        E-mail: info@muranga.go.ke <br>
+                        Web: muranga.go.ke
+                     </p>
+                  </div>
+                  <div class="col-4">
+                     <center>
+                        <img src="logo.png" class="rounded-pill" width="100" height="100" alt="bursary form">
+                     </center>
+                  </div>
+                  <div class="col-4">
+                     <p>County Hall,<br>
+                        P.O Box 52—10200,<br>
+                        Murang’a,<br>
+                        Kenya <br>
+                        Telephone 060-2030271
+                     </p>
+                  </div>
+               </div>
+               <form id="msform">
+                  <!-- progressbar -->
+                  <ul id="progressbar">
+                     <li class="active" id="account"><strong>Introduction</strong></li>
+                     <li id="personal"><strong>Part A</strong></li>
+                     <li id="personal"><strong>Part B</strong></li>
+                     <li id="confirm"><strong>Next</strong></li>
+                  </ul>
+                  <div class="progress">
+                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <br> <!-- fieldsets -->
+                  <!-- fieldset 1-->
+                  <fieldset class="bg-warning">
+                     <div class="form-card  mx-3">
+                        <div class="row">
+                           <div class="col-7">
+                              <h2 class="fs-title">SCHOOL BURSARY APPLICATION FORM:</h2>
+                           </div>
+                           <div class="col-5">
+                              <h2 class="steps">Step 1 - 7</h2>
+                           </div>
+                           <div class="col-12 g-3 row">
+                              <div class="input-group">
+                                 <span class="input-group-text">Form No: </span>
+                                 <input type="text" class="form-control" name="formno" id="formno" disabled>
+                              </div>
+                           </div>
+                           <!--1-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Year: </span>
+                                 <select  class="form-select" name="years" id="year"></select>
+                              </div>
+                           </div>
+                           <!--2-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">District: </span>
+                                 <input type="text" name="district" id="district" class="form-control" onblur="am()" value="">
+                              </div>
+                           </div>
+                           <!--2-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Constituency: </span>
+                                 <input type="text" name="division" id="division" class="form-control" onblur="am()" value="">
+                              </div>
+                           </div>
+                           <!--2-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Ward: </span>
+                                 <input type="text" name="ward" id="ward" class="form-control" onblur="am()" value="">
+                              </div>
+                           </div>
+                           <!--2-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Sub-Location: </span>
+                                 <input type="text" name="sublocation" id="sublocation" class="form-control" onblur="am()" value="">
+                              </div>
+                           </div>
+
+                        </div>
+                     </div>
+                     <input type="button" name="next" class="next action-button" value="Next" />
+                  </fieldset>
+                  <!-- fieldset 2-->
+                  <fieldset class="bg-warning">
+                     <div class="form-card">
+                        <div class="row">
+                           <div class="col-7">
+                              <h2 class="fs-title">PART A: STUDENT’S PERSONAL DETAILS:</h2>
+                           </div>
+                           <div class="col-5">
+                              <h2 class="steps">Step 2 - 7</h2>
+                           </div>
+                           <!--1-->
+                           <div class="col-12 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Full Name: </span>
+                                 <input type="text" name="fname" id="fname" class="form-control" onblur="am()" placeholder="first" value="">
+                                 <input type="text" name="mname" id="mname" class="form-control" onblur="am()" placeholder="middle" value="">
+                                 <input type="text" name="lname" id="lname" class="form-control" onblur="am()" placeholder="last" value="">
+                              </div>
+                           </div>
+                           <!--1-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Date of Birth: </span>
+                                 <input type="date" name="dob" id="dob" class="form-control" onblur="am()" value="">
+                              </div>
+                           </div>
+                           <!--2-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Name of School: </span>
+                                 <input type="text" name="namesch" id="namesch" class="form-control" onblur="am()" value="">
+                              </div>
+                           </div>
+                           <!--2-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Year: </span>
+                                 <select  class="form-select" name="year" id="years"></select>
+                              </div>
+                           </div>
+                           <!--2-->
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Sex: </span>
+                                 <input class="form-check-input mx-2" type="radio" name="sex" id="male" value="Male">
+                                 <label class="form-check-label mx-2" for="male">
+                                 Male
+                                 </label>
+                                 <input class="form-check-input" type="radio" name="sex" id="female" value="Female">
+                                 <label class="form-check-label mx-2" for="female">
+                                 Female
+                                 </label>
+                                 <input class="form-check-input" type="radio" name="sex" id="other" value="Other">
+                                 <label class="form-check-label mx-2" for="other">
+                                 Other
+                                 </label>
+                              </div>
+                           </div>
+                           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Choose your Level: </span>
+                                 <select class="form-select" onchange="nextpage()" id="levels" aria-label="Default select example">
+                                    <option value="0">--------</option>
+                                    <option value="1">Form 1</option>
+                                    <option value="2">Above Form 1</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div id="form1">
+                           <div class="row">
+                              <!--2-->
+                              <div class="col-12 g-3">
+                                 <b>For those students joining Form I: (please attach instructions)</b>
+                              </div>
+                              <!--2-->
+                              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4 g-3">
+                                 <div class="input-group">
+                                    <span class="input-group-text">School admitted: </span>
+                                    <input class="form-check-input mx-2" type="radio" name="schadmitted" id="national">
+                                    <label class="form-check-label mx-2" for="national">
+                                    National
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="schadmitted" id="provincial" value="provincial">
+                                    <label class="form-check-label mx-2" for="provincial">
+                                    Provincial
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="schadmitted" id="district" value="district">
+                                    <label class="form-check-label mx-2" for="district">
+                                    District
+                                    </label>
+                                 </div>
+                              </div>
+                              <!--2-->
+                              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-4 g-3">
+                                 <div class="input-group">
+                                    <span class="input-group-text">Student/pupil conduct: </span>
+                                    <input class="form-check-input mx-2" type="radio" name="conduct" id="Excellent">
+                                    <label class="form-check-label mx-2" for="Excellent">
+                                    Excellent
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="conduct" id="Good" value="Good">
+                                    <label class="form-check-label mx-2" for="Good">
+                                    V. Good
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="conduct" id="Fair" value="Fair">
+                                    <label class="form-check-label mx-2" for="Fair">
+                                    Fair
+                                    </label>
+                                    <input class="form-check-input" type="radio" name="conduct" id="Poor" value="Poor">
+                                    <label class="form-check-label mx-2" for="Poor">
+                                    Poor
+                                    </label>
+                                 </div>
+                              </div>
+                              <div class="col-12 g-3">
+                                 <b>I declare that to the best of my knowledge the above information is true/or the applicant to attach a copy of certified school leaving certificate.</b>
+                              </div>
+                              <div class="col-12 g-3">
+                                 <div class="input-group">
+                                    <span class="input-group-text mx-2">Attach Leaving certificate and Stamp: </span>
+                                    <input type="file" name="files" id="files" class="form-control" onblur="am()" value="">
+                                    <textarea class="form-control" id="signature" placeholder="Signature" rows="1"></textarea>
+                                    <input type="date" name="datesch" id="datesch" class="form-control" onblur="am()" value="Date">
+                                    <input type="text" name="School" id="sch" class="form-control" onblur="am()" value="School">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div id="above1">
+                           <div class="row">
+                              <div class="col-12 g-3">
+                                 <b>For students either joining Form I or continuing in Form 2, 3 or 4 and University .</b>
+                              </div>
+                              <div class="col-12 g-3">
+                                 <div class="input-group">
+                                    <span class="input-group-text"> Institution Type: </span>
+                                    <label class="form-check-label mx-2" for="University">
+                                    University/college
+                                    </label>
+                                    <input class="form-check-input mx-2" type="radio" name="institutions" id="University">
+                                    <label class="form-check-label mx-2" for="Special">
+                                    Special school
+                                    </label>
+                                    <input class="form-check-input me-3" type="radio" name="institutions" id="Special">
+                                    <label class="form-check-label mx-2" for="secondary">
+                                    Secondary school
+                                    </label>
+                                    <input class="form-check-input me-3" type="radio" name="institutions" id="secondary">
+                                 </div>
+                              </div>
+                              <div class="col-12 g-3">
+                                 <div class="input-group">
+                                    <span class="input-group-text">Total fees (Kshs): </span>
+                                    <input type="text" name="totalform" id="totalform" class="form-control me-2" onblur="am()">
+                                    <span class="input-group-text">Paid/able to raise (Kshs): </span>
+                                    <input type="text" name="paidform" id="paidform" class="form-control me-2" onblur="am()">
+                                    <span class="input-group-text">Outstanding balance (Kshs): </span>
+                                    <input type="text" name="outstandingform" id="outstandingform" class="form-control" onblur="am()">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <input type="button" name="next" class="next action-button" value="Next" />
+                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                  </fieldset>
+                  <fieldset class="bg-warning">
+                     <div class="form-card">
+                        <div class="row">
+                           <div class="col-7">
+                              <h2 class="fs-title">PART B: FAMILY INFORMATION:</h2>
+                           </div>
+                           <div class="col-5">
+                              <h2 class="steps">Step 3 - 7</h2>
+                           </div>
+                           <div class="col-12 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Check appropriately: </span>
+                                 <input class="form-check-input mx-2" type="radio" name="parents" id="dead">
+                                 <label class="form-check-label mx-2" for="dead">
+                                 Both parents dead
+                                 </label>
+                                 <input class="form-check-input mx-2" type="radio" name="parents" id="One">
+                                 <label class="form-check-label mx-2" for="One">
+                                 One parent dead
+                                 </label>
+                                 <input class="form-check-input mx-2" type="radio" name="parents" id="Both">
+                                 <label class="form-check-label mx-2" for="Both">
+                                 Both parents alive
+                                 </label>
+                                 <input class="form-check-input mx-2" type="radio" name="parents" id="Single">
+                                 <label class="form-check-label mx-2" for="Single">
+                                 Single parent
+                                 </label>
+                                 <input class="form-check-input mx-2" type="radio" name="parents" id="disability">
+                                 <label class="form-check-label mx-2" for="disability">
+                                 Any disability
+                                 </label>
+                                 <input type="file" name="support" class="form-control">
+                              </div>
+                              <b>(Attach support documents: e.g. death certificate, letter explaining disability or other disadvantage/circumstance from chief, religious leader, prominent reference).</b>
+                           </div>
+                           <div class="col-12 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Guardian’s Name: </span>
+                                 <input type="text" name="fname" id="fname" class="form-control" onblur="am()" placeholder="first" value="">
+                                 <input type="text" name="mname" id="mname" class="form-control" onblur="am()" placeholder="middle" value="">
+                                 <input type="text" name="lname" id="lname" class="form-control" onblur="am()" placeholder="last" value="">
+                              </div>
+                           </div>
+                           <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Phone number: </span>
+                                 <input type="tel" name="phonenoc" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Email Address: </span>
+                                 <input type="email" name="emailc" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4 g-3">
+                              <div class="input-group">
+                                 <span class="input-group-text">Occupation/Profession : </span>
+                                 <input type="text" name="occupation" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-6 g-3">
+                              <div class="input-group">
+                                 <b class="me-3">(1) How many brothers and sisters do you have?</b>
+                                 <input type="number"  min="0" name="brono" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-6 g-3">
+                              <div class="input-group">
+                                 <b class="me-3">(2) How many children does the guardian have?</b>
+                                 <input type="number"  min="0" name="brono" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-6 g-3">
+                              <div class="input-group">
+                                 <b class="me-3">(3) How many are working/in business/farming?</b>
+                                 <input type="number"  min="0" name="brono" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-6 g-3">
+                              <div class="input-group">
+                                 <b class="me-3">(4) How many are in secondary school?</b>
+                                 <input type="number"  min="0" name="brono" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-6 g-3">
+                              <div class="input-group">
+                                 <b class="me-3">(5) How many are in post-secondary Institutions? </b>
+                                 <input type="number"  min="0" name="brono" class="form-control" value="">
+                              </div>
+                           </div>
+                           <div class="col-6 g-2">
+                              <div class="input-group">
+                                 <b class="me-2">Are you a continuing student</b>
+                                 <select class="form-select" aria-label="Default select example" id="continuing" onchange="changecont()">
+                                    <option value="4">--------</option>
+                                    <option value="5">Yes</option>
+                                    <option value="6">No</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <b>1. STUDENT’S DECLARATION</b>
+                           </div>
+                           <div class="col-12 g-3">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">I declare that to the best of my knowledge the information given herein is true. </span>
+                                 <span class="input-group-text me-3">Student’s Signature: </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                                 <span class="input-group-text me-3">Date: </span>
+                                 <input type="date" class="form-control" name="" value="">
+                              </div>
+                           </div>
+                           <span id="form2">
+                              <div class="col-12 g-3">
+                                 <b>(for continuing students)</b>
+                                 <div class="input-group">
+                                    <b class="me-3">(6) If both parents are alive, who has been paying for your education? </b>
+                                    <label class="form-check-label mx-2" for="Guardian">
+                                    Guardian
+                                    </label>
+                                    <input class="form-check-input mx-2" type="radio" name="alive" id="Guardian">
+                                    <label class="form-check-label mx-2" for="Sponsor">
+                                    Sponsor/well-wishers
+                                    </label>
+                                    <input class="form-check-input mx-2" type="radio" name="alive" id="Sponsor">
+                                    <span class="input-group-text">Any other (specify): </span>
+                                    <input type="text" name="alive" id="other" class="form-control me-2" onblur="am()">
+                                 </div>
+                              </div>
+                              <div class="col-12 g-3">
+                                 <b>(7) Have you ever benefited from the Constituency Bursary Fund?</b>
+                                 <div class="input-group">
+                                    <label class="form-check-label mx-2" for="Guardian">
+                                    Yes
+                                    </label>
+                                    <input class="form-check-input mx-2" type="radio" name="benefited" id="Guardian">
+                                    <label class="form-check-label mx-2" for="Sponsor">
+                                    No
+                                    </label>
+                                    <input class="form-check-input mx-2" type="radio" name="benefited" id="Sponsor">
+                                    <b>If yes, state the Amount(Kshs): </b>
+                                    <input type="text" name="amount" class="form-control" value="">
+                                 </div>
+                              </div>
+                           </span>
+                        </div>
+                     </div>
+                     <input type="button" name="next" class="next action-button" value="Next" />
+                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                  </fieldset>
+                  <fieldset class="bg-warning">
+                     <div class="form-card">
+                        <div class="row">
+                           <div class="col-7">
+                              <h2 class="fs-title">Finish For Students:</h2>
+                           </div>
+                           <div class="col-5">
+                              <h2 class="steps">Step 4 - 7</h2>
+                           </div>
+                        </div>
+                        <br><br>
+                        <h4 class="purple-text text-center"><strong>SUCCESS! Now Go to the Guardian Section</strong></h4>
+                        <br>
+                        <div class="row justify-content-center">
+                           <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                           <div class="col-7 text-center">
+                              <button type="button" class="btn btn-secondary fs-4" onclick="guardiansection()" name="button">Guardian Section</button>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
+               </form>
+            </section>
+            <section class="tyss bg-warning" id="guardian">
+               <div class="row">
+                  <div class="col-4">
+                     <p class=" float-start">ALL CORRESPONDENCE TO BE ADDRESSED: THE COUNTY SECRETARY <br>
+                        E-mail: info@muranga.go.ke <br>
+                        Web: muranga.go.ke
+                     </p>
+                  </div>
+                  <div class="col-4">
+                     <center>
+                        <img src="logo.png" class="rounded-pill" width="100" height="100" alt="bursary form">
+                     </center>
+                  </div>
+                  <div class="col-4">
+                     <p>County Hall,<br>
+                        P.O Box 52—10200,<br>
+                        Murang’a,<br>
+                        Kenya <br>
+                        Telephone 060-2030271
+                     </p>
+                  </div>
+               </div>
+               <form id="msform">
+                  <ul id="progressbar">
+                     <li class="active" id="account"><strong>Part C</strong></li>
+                     <li id="personal"><strong>Part D</strong></li>
+                     <li id="personal"><strong>Part E</strong></li>
+                     <li id="confirm"><strong>Finish</strong></li>
+                  </ul>
+                  <div class="progress">
+                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <br>
+                  <!-- fieldsets -->
+                  <fieldset class="bg-warning">
+                     <div class="form-card">
+                        <div class="row">
+                           <div class="col-7">
+                              <h2 class="fs-title">PART C: INFORMATION ABOUT FAMILY FINANCIAL STATUS:</h2>
+                           </div>
+                           <div class="col-5">
+                              <h2 class="steps">Step 4 - 7</h2>
+                           </div>
+                           <div class="col-12">
+                              <b>1. Gross income  in  last 12 Months (Kshs)</b>
+                              <div class="input-group g-3">
+                                 <span class="input-group-text">Father: </span>
+                                 <input type="text" name="" class="form-control me-2" value="">
+                                 <span class="input-group-text">Mother: </span>
+                                 <input type="text" name="" class="form-control me-2" value="">
+                                 <span class="input-group-text">Guardian/ Sponsor: </span>
+                                 <input type="text" name="" class="form-control" value="">
+                              </div>
+                              <b class="g-3">*Gross Income: (This means income from salary, business and farming) </b>
+                              <div class="col-12">
+                                 <b class="g-3">2. Applicant’s siblings in educational institutions</b>
+                              </div>
+                              <div class="input-group">
+                                 <div class="col-3">
+                                    <span class="input-group-text">Sibling’s Name/Guardian’s Children: </span>
+                                 </div>
+                                 <div class="col-2">
+                                    <span class="input-group-text">Name of the Institution: </span>
+                                 </div>
+                                 <div class="col-2">
+                                    <span class="input-group-text">Year of Study/Class </span>
+                                 </div>
+                                 <div class="col-1">
+                                    <span class="input-group-text">Total Fees: </span>
+                                 </div>
+                                 <div class="col-1">
+                                    <span class="input-group-text">Fees Paid: </span>
+                                 </div>
+                                 <div class="col-2">
+                                    <span class="input-group-text">Outstanding Balance: </span>
+                                 </div>
+                                 <div class="col-1">
+                                    <span class="input-group-text">Actions: </span>
+                                 </div>
+                              </div>
+                              <div class="field_wrapper">
+                                 <div class="input-group-text">
+                                    <div class="col-3">
+                                       <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-2">
+                                       <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-2">
+                                       <input type="text" class="form-control">
+                                    </div>
+                                    <div class="col-1">
+                                       <input type="text" class="form-control fees" onblur="fees()">
+                                    </div>
+                                    <div class="col-1">
+                                       <input type="text" class="form-control paid" onblur="paid()">
+                                    </div>
+                                    <div class="col-2">
+                                       <input type="text" class="form-control balance" onblur="balance()">
+                                    </div>
+                                    <div class="col-1">
+                                       <a href="javascript:void(0);" class="add_button" title="Add field"><i class="fas fa-plus"></i></a>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="input-group-text">
+                                 <div class="col-7">
+                                    <b>Grand Total</b>
+                                 </div>
+                                 <div class="col-1">
+                                    <input type="text" class="form-control" id="totfees" value="">
+                                 </div>
+                                 <div class="col-1">
+                                    <input type="text" class="form-control" id="totpaid" value="">
+                                 </div>
+                                 <div class="col-2">
+                                    <input type="text" class="form-control" id="totbalance" value="">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <input type="button" name="next" class="next action-button" value="Next" />
+                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                  </fieldset>
+                  <fieldset class="bg-warning">
+                     <div class="row">
+                        <div class="col-7 g-3">
+                           <h2 class="fs-title">PART D: DECLARATION:</h2>
+                        </div>
+                        <div class="col-5 g-3">
+                           <h2 class="steps">Step 5 - 7</h2>
+                        </div>
+                        <div class="col-12 g-3">
+                           <b>2. PARENT’S/GUARDIAN’S DECLARATION</b>
+                        </div>
+                        <div class="col-12 g-3">
+                           <span class="input-group-text">I declare that I have read this form/this form has been read to me and I hereby confirm that the information given herein is true to the best of my knowledge. </span>
+                        </div>
+                        <div class="col-12">
+                           <div class="input-group-text">
+                              <span class="input-group-text me-3">Parent’s/Guardian’s Name: </span>
+                              <input type="text" class="form-control me-2" name="" value="">
+                              <span class="input-group-text me-3">Parent’s/Guardian’s Signature: </span>
+                              <input type="text" class="form-control me-2" name="" value="">
+                              <span class="input-group-text me-3">Date: </span>
+                              <input type="date" class="form-control" name="" value="">
+                           </div>
+                        </div>
+                     </div>
+                     <input type="button" name="next" class="next action-button" value="Next" />
+                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                  </fieldset>
+                  <fieldset class="bg-warning">
+                     <div class="row">
+                        <div class="col-7">
+                           <h2 class="fs-title">PART E: BANK ACCOUNT DETAILS</h2>
+                        </div>
+                        <div class="col-5">
+                           <h2 class="steps">Step 6 - 7</h2>
+                        </div>
+                        <div class="col-12 g-3">
+                           <div class="col-12">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">FULL NAME OF THE INSTITUTION </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">BANK ACCOUNT NAME </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">BANK NAME </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">ACCOUNT NUMBER </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">BRANCH CODE </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">BANK CODES </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <div class="input-group-text">
+                                 <span class="input-group-text me-3">SWIFT CODE </span>
+                                 <input type="text" class="form-control me-2" name="" value="">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <input type="button" name="next" class="next action-button" value="Submit" />
+                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                  </fieldset>
+                  <fieldset class="bg-warning">
+                     <div class="form-card">
+                        <div class="row">
+                           <div class="col-7">
+                              <h2 class="fs-title">Finish:</h2>
+                           </div>
+                           <div class="col-5">
+                              <h2 class="steps">Step 7 - 7</h2>
+                           </div>
+                        </div>
+                        <br><br>
+                        <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2>
+                        <br>
+                        <div class="row justify-content-center">
+                           <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                        </div>
+                        <br><br>
+                        <div class="row justify-content-center">
+                           <div class="col-7 text-center">
+                              <h5 class="purple-text text-center">You Have Successfully Uploaded the Form</h5>
+                           </div>
+                        </div>
+                     </div>
+                  </fieldset>
+               </form>
+            </section>
+         </main>
+         <!-- page-content" -->
+      </div>
+      <!-- page-wrapper -->
+      <!-- partial -->
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+      <script  src="./scripts.js"></script>
+      <script type="text/javascript">
+         var year = 2021;
+                  var till = 2035;
+                  var options = "";
+                  for(var y=year; y<=till; y++){
+                  options += "<option>"+ y +"</option>";
+                  document.getElementById("year").innerHTML = options;
+                  document.getElementById("years").innerHTML = options;
+                  }
+                  function am(){
+                  var x = document.getElementsByName("district")[0].value;
+                 // alert(x);
+                  }
+                  document.getElementById("formno").value = Math.floor(Math.random() * 100);
+                  function fees(){
+                    var tot = 0;
+                    var arr = document.getElementsByClassName('fees');
+
+                   for(var i=0;i<arr.length;i++){
+                       if(parseFloat(arr[i].value))
+                           tot += parseFloat(arr[i].value);
+                   }
+                   document.getElementById('totfees').value = tot;
+                  }
+                  function paid(){
+                    var tot = 0;
+                    var arr = document.getElementsByClassName('paid');
+
+                   for(var i=0;i<arr.length;i++){
+                       if(parseFloat(arr[i].value))
+                           tot += parseFloat(arr[i].value);
+                   }
+                   document.getElementById('totpaid').value = tot;
+                  }
+                  function balance(){
+                    var tot = 0;
+                    var arr = document.getElementsByClassName('balance');
+
+                   for(var i=0;i<arr.length;i++){
+                       if(parseFloat(arr[i].value))
+                           tot += parseFloat(arr[i].value);
+                   }
+                   document.getElementById('totbalance').value = tot;
+                  }
+                  function nextpage(){
+                    var e = document.getElementById('levels').value;
+                    if (e == 1) {
+                      document.getElementById('form1').style.display = "block";
+                      document.getElementById('above1').style.display = "none";
+                    }else if (e == 2) {
+                      document.getElementById('form1').style.display = "none";
+                      document.getElementById('above1').style.display = "block";
+                    }else{
+                      document.getElementById('form1').style.display = "none";
+                      document.getElementById('above1').style.display = "none";
+                    }
+                  }
+                  function changecont(){
+                    var x = document.getElementById('continuing').value;
+                    if (x == 5) {
+                      document.getElementById('form2').style.display = "block";
+                    }else if (x == 6) {
+                      document.getElementById('form2').style.display = "none";
+                    }else{
+                      document.getElementById('form2').style.display = "none";
+                    }
+                  }
+                  function guardiansection(){
+                    document.getElementById('guardian').style.display = "block";
+                    document.getElementById('student').style.display = "none";
+                    document.getElementById('chief').style.display = "none";
+                  }
+                  function studentsection(){
+                    document.getElementById('guardian').style.display = "none";
+                    document.getElementById('student').style.display = "block";
+                    document.getElementById('chief').style.display = "none";
+                  }
+      </script>
+   </body>
+</html>
